@@ -1,0 +1,35 @@
+13.11.2024 09:15:53: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:21:52: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:24:23: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:26:09: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:28:22: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:28:56: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:29:25: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:29:33: 'C:\inetpub\history' yoluna erişim reddedildi.
+13.11.2024 09:30:00: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:30:09: 'C:\inetpub\history' yoluna erişim reddedildi.
+13.11.2024 09:31:30: ConnectionString özelliği başlatılmamış.
+13.11.2024 09:31:37: 'C:\inetpub\history' yoluna erişim reddedildi.
+13.11.2024 09:32:06: Login failed for user ''.
+13.11.2024 09:32:23: Sunucuyla bağlantı kurulurken ağ ile ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya sunucuya erişilemiyor. Örnek adının doğru olduğunu ve SQL Server'ın uzak bağlantılara izin verdiğini doğrulayın. (provider: Named Pipes Provider, error: 40 - SQL Server için bağlantı açılamadı)
+13.11.2024 09:50:19: TC No: 12077486274 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+13.11.2024 09:50:21: TC No: 12077486274 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+
+13.11.2024 09:50:21: TC No: 17945380142 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+13.11.2024 09:50:21: TC No: 17945380142 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+
+13.11.2024 09:50:21: TC No: 22969770978 Personel Adı: SAİT DENİZ Cannot insert duplicate key row in object 'dbo.D_WFDOCS' with unique index 'I_WFDOCS_02'. The duplicate key value is (1, TR Amortisman Hesaplaması.pdf, /, 1.0, 0, 0).
+13.11.2024 09:50:22: TC No: 22969770978 Personel Adı: SAİT DENİZ Cannot insert duplicate key row in object 'dbo.D_WFDOCS' with unique index 'I_WFDOCS_02'. The duplicate key value is (1, TR Amortisman Hesaplaması.pdf, /, 1.0, 0, 0).
+
+13.11.2024 09:50:22: TC No: 28978567226 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+13.11.2024 09:50:23: TC No: 28978567226 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+
+13.11.2024 09:50:23: TC No: 32744266206 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+13.11.2024 09:50:23: TC No: 32744266206 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+
+13.11.2024 09:50:23: TC No: 32744266206 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+13.11.2024 09:50:24: TC No: 32744266206 Personel Adı: TC Kimlik No Personel J-HR YOK Cannot insert the value NULL into column 'BOLREF', table 'JPLATFORM.dbo.D_BODOCUMENTS'; column does not allow nulls. INSERT fails.
+
+13.11.2024 09:50:24: TC No: 67993077334 Personel Adı: FATİH BAŞ Cannot insert duplicate key row in object 'dbo.D_WFDOCS' with unique index 'I_WFDOCS_02'. The duplicate key value is (1, MuhasebeSablon.xlsx, /, 1.0, 0, 0).
+13.11.2024 09:50:25: TC No: 67993077334 Personel Adı: FATİH BAŞ Cannot insert duplicate key row in object 'dbo.D_WFDOCS' with unique index 'I_WFDOCS_02'. The duplicate key value is (1, MuhasebeSablon.xlsx, /, 1.0, 0, 0).
+
