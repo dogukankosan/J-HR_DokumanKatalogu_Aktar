@@ -100,4 +100,13 @@ D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\es\DevExpress.Office.v20
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.FileAccessManager.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.PermissionForm.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.DataSet.dll
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.dll
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.pdb
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.xml
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.DataSet.pdb
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.DataSet.xml
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.PopulationForm.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.TitleForm.resources
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J-HR.csprojAssemblyReference.cache

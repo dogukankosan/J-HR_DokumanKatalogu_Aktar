@@ -107,29 +107,46 @@ namespace J_HR.SQL
             }
             return "Başarılı";
         }
-        public static async Task<string> ExecuteAsync(string query)
+        public static async Task<bool> ExecuteAsync(string query)
         {
-            string errorMessage = "";
             try
             {
-                // SqlConnection kullanarak veritabanına bağlan
                 using (SqlConnection connection = new SqlConnection(sqlConnection))
                 {
                     await connection.OpenAsync();
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         await command.ExecuteNonQueryAsync();
+                        return true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Hata durumunda hata mesajını yakala
-                errorMessage = string.Concat(ex.Message);
+                XtraMessageBox.Show(ex.Message,"Hatalı Veritabanı işlemi",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Logger.TextLogging(ex.Message);
-                return errorMessage;
+                return false;
             }
-            return "Başarılı";
+        }
+        public static async Task<bool> DropExecuteAsync(string query)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(sqlConnection))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        await command.ExecuteNonQueryAsync();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.TextLogging(ex.Message);
+                return false;
+            }
         }
     }
 }

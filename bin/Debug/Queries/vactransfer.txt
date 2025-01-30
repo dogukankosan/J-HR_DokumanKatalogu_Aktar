@@ -1,0 +1,129 @@
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASY_VacTransfer]') AND type in (N'P', N'PC'))
+BEGIN
+    EXEC('
+    CREATE PROCEDURE ASY_VacTransfer
+    AS
+    BEGIN
+        DECLARE @ID INT = 1, @TABLOCOUNT INT = 0, @MESSAGE VARCHAR(500), @NewCode VARCHAR(16);
+
+        IF OBJECT_ID(''dbo.AKTARIZIN'', ''U'') IS NULL
+BEGIN
+    CREATE TABLE AKTARIZIN
+    (
+        ID INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+        PersonelCode VARCHAR(16) NOT NULL,
+        IzinCode VARCHAR(4) NOT NULL,
+        IzinTanimi VARCHAR(50),
+        IzinAciklamasi VARCHAR(250) NOT NULL,
+        IzinBaslangic DATETIME,
+        IzinBitis DATETIME,
+        Sure DECIMAL(38, 18),
+        SureTipi VARCHAR(10)
+    );
+END;
+
+
+        SELECT @TABLOCOUNT = COUNT(*) FROM AKTARIZIN WITH (NOLOCK);
+
+        BEGIN TRY
+            BEGIN TRANSACTION;
+            WHILE (@TABLOCOUNT >= @ID)
+            BEGIN
+                DECLARE @PERSONELCODE VARCHAR(100), @IZINCODE VARCHAR(10), @IZINTANIMI VARCHAR(50), 
+                        @BASLANGIC DATETIME, @BITIS DATETIME, @SURE DECIMAL(38,18), @SURETIPI VARCHAR(5), 
+                        @PERSONELLOGICALREF INT, @IZINLOGICALREF INT;
+
+                SELECT TOP 1 
+                    @PERSONELCODE = PersonelCode,
+                    @IZINCODE = IzinCode,
+                    @IZINTANIMI = IzinTanimi,
+                    @BASLANGIC = IzinBaslangic,
+                    @BITIS = IzinBitis,
+                    @SURE = Sure,
+                    @SURETIPI = SureTipi
+                FROM AKTARIZIN 
+                WHERE ID = @ID;
+
+                SELECT TOP 1 @PERSONELLOGICALREF = LOGICALREF 
+                FROM H_001_PERSONS WITH (NOLOCK) 
+                WHERE CODE = @PERSONELCODE;
+
+                IF (@PERSONELLOGICALREF IS NULL)
+                BEGIN
+                    SET @MESSAGE = CONCAT(''PERSONEL BULUNAMADI: '', @PERSONELCODE);
+                    RAISERROR(@MESSAGE, 16, 1);
+                END;
+
+                IF (DATEDIFF(HOUR, @BASLANGIC, @BITIS) <= 0)
+                BEGIN
+                    SET @MESSAGE = CONCAT(''İZİN BAŞLANGIÇ BİTİŞTEN KÜÇÜK VEYA EŞİT OLAMAZ !! '', 
+                                          ''İzin başlangıç: '', @BASLANGIC, 
+                                          ''  İzin Bitiş: '', @BITIS, 
+                                          '' PERSONEL KODU: '', @PERSONELCODE);
+                    RAISERROR(@MESSAGE, 16, 1);
+                END;
+
+                SET @IZINLOGICALREF =
+                    CASE @IZINCODE
+                        WHEN ''001'' THEN 1
+                        WHEN ''002'' THEN 2
+                        WHEN ''003'' THEN 3
+                        WHEN ''004'' THEN 4
+                        WHEN ''005'' THEN 5
+                        WHEN ''006'' THEN 6
+                        WHEN ''007'' THEN 7
+                        WHEN ''008'' THEN 8
+                        WHEN ''009'' THEN 9
+                        WHEN ''010'' THEN 10
+                        WHEN ''011'' THEN 11
+                        ELSE NULL
+                    END;
+
+                IF (@IZINLOGICALREF IS NULL)
+                BEGIN
+                    SET @MESSAGE = CONCAT(''BÖYLE BİR İZİN KODU BULUNAMADI: '', @IZINCODE);
+                    RAISERROR(@MESSAGE, 16, 1);
+                END;
+
+                SELECT TOP 1 @NewCode = CODE 
+                FROM H_001_VACTRANS WITH (NOLOCK) 
+                ORDER BY LOGICALREF DESC;
+
+                IF @NewCode IS NULL 
+                    SET @NewCode = ''0000000001'';
+                ELSE 
+                    SET @NewCode = RIGHT(''0000000000'' + CAST(CAST(@NewCode AS BIGINT) + 1 AS NVARCHAR(10)), 10);
+
+                DECLARE @NewLogicalRef INT = NEXT VALUE FOR H_001_VACTRANSSEQ;
+
+                INSERT INTO H_001_VACTRANS 
+                (
+                    LOGICALREF, TRTYPE, CODE, DESCRIPTION, PERREF, VACDEFREF, HEALTHREF, PLANNERREF, 
+                    APPROVALREF, REQUESTREF, EVALDATE, APPROVALEXP, BEGDATE, ENDDATE, PERIOD, PERIODTYPE,
+                    BOSTATUS, VACLISTSTATUS, PNTSTATUS, PNTBEGDATE, AUXCODE, ADDRESS, PHONENR, PLANBEGDATE,
+                    PLANENDDATE, PLANPERIOD, PLANPERIODTYPE, EVENTDATE, PERIODBEFEVENT, PERIODAFTEVENT, 
+                    OPERATIONREF, PRINTCNT, APPROVALDEFREF, APPOINTMENTID, RETURNDATE, ACTUALRETURNDATE, 
+                    DELIVERYCHECK, DELEGATERREF, ADDWORKREQUESTREF, SHIFTMANREF, PERIODUSAGETYPE, 
+                    PERIODWEEKDAYS, EMPLOYEEAPPROVALSTAT, APPROVALTRANSDEFREF, APPROVALTRANSSTATUS, 
+                    ISSUBVACTRANS, PARENTREF, SHIFTTOLERANCEPERIOD, ADDEDPERIODBYNOTIFY, 
+                    SPLITTEDVACPARENTREF, ISEDITEDBYHRADMIN, AUTHCODE, TE_RECSTATUS, TE_LABELS, 
+                    CREATEDBY, CREATEDBYNAME, CREATEDON, MODIFIEDBY, MODIFIEDBYNAME, MODIFIEDON, 
+                    TE_SUBCOMPANY, TE_WPIID, TE_WFIID, TE_RIGHTS, RECONREF, SHIFTREF
+                )
+                SELECT @NewLogicalRef, 1, @NewCode, @IZINTANIMI, @PERSONELLOGICALREF, @IZINLOGICALREF, 0, 0, 0, 0, 
+                       NULL, '''', @BASLANGIC, @BITIS, @SURE, 0, 5, 0, 0, NULL, '''', '''', '''', @BASLANGIC, @BITIS, 
+                       @SURE, 0, NULL, 0, 0, 0, 0, 0, '''', @BITIS, @BITIS, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 
+                       0, 0, '''', 1, NULL, 0, ''Asyen'', GETDATE(), 0, '''', NULL, 0, 0, '''', 0, 0, 0;
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+            DECLARE @MESAJ VARCHAR(MAX) = ERROR_MESSAGE();
+            RAISERROR(@MESAJ, 16, 1);
+        END CATCH;
+    END');
+END;

@@ -20,7 +20,7 @@ namespace J_HR.Forms
         // sql için formatlıyorum in şartı için
         private string values = "''";
         string secilenKlasorYolu = "";
-        private async void btn_Files_Click(object sender, EventArgs e)
+        private  void btn_Files_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
@@ -49,10 +49,6 @@ namespace J_HR.Forms
                     label1.Text = secilenKlasorYolu;
                 }
             }
-        }
-        private void FileAccessManager_Load(object sender, EventArgs e)
-        {
-
         }
         private void btn_Files_MouseHover(object sender, EventArgs e)
         {
@@ -101,6 +97,14 @@ namespace J_HR.Forms
             }      
             XtraMessageBox.Show("HATA MESAJINIZ VARSA METİN KUTUSUNDAN KONTROL EDİNİZ ONUN DIŞINDAKİLERİ AKTARIM İŞLEMİ TAMAMLANMIŞTIR", "AKTARMA İŞLEMİ TAMAMLANDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btn_Save.Text = "J-HR'a Aktar";
+        }
+        private async void btn_FullBackup_Click(object sender, EventArgs e)
+        {
+            await Backup.FullBackUp(btn_ExcelTemplate, btn_Save, btn_Excel, label1, btn_FullBackup);
+        }
+        private async void btn_TableBackup_Click(object sender, EventArgs e)
+        {
+            await Backup.TableBackUp("doctransfer.txt");
         }
     }
 }

@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>asyenlogo.ico</ApplicationIcon>
+    <ApplicationIcon>asyenlogo-removebg-preview.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v20.1" />
@@ -43,14 +43,20 @@
     <Reference Include="DevExpress.Sparkline.v20.1.Core" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1" />
-    <Reference Include="DevExpress.Printing.v20.1.Core" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.7.0\lib\net462\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0\lib\net462\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Backup.cs" />
     <Compile Include="Class\FileProcess.cs" />
     <Compile Include="Class\FileToBinaryConvert.cs" />
     <Compile Include="Class\Logger.cs" />
@@ -71,17 +78,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PopulationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PopulationForm.Designer.cs">
+      <DependentUpon>PopulationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FileAccessManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FileAccessManager.Designer.cs">
       <DependentUpon>FileAccessManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PermissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PermissionForm.Designer.cs">
+      <DependentUpon>PermissionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SQLConnectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\SQLConnectionForm.Designer.cs">
       <DependentUpon>SQLConnectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TitleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TitleForm.Designer.cs">
+      <DependentUpon>TitleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\DocTransferModel.cs" />
     <Compile Include="Program.cs" />
@@ -90,11 +115,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PopulationForm.resx">
+      <DependentUpon>PopulationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FileAccessManager.resx">
       <DependentUpon>FileAccessManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PermissionForm.resx">
+      <DependentUpon>PermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SQLConnectionForm.resx">
       <DependentUpon>SQLConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TitleForm.resx">
+      <DependentUpon>TitleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -107,6 +141,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,7 +153,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="asyenlogo.ico" />
+    <Content Include="asyenlogo-removebg-preview.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

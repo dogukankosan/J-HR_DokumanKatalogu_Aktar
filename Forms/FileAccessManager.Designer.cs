@@ -35,6 +35,13 @@
             this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_TableBackup = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_FullBackup = new DevExpress.XtraEditors.SimpleButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_ExcelTemplate = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Excel = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Files
@@ -82,12 +89,98 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_TableBackup);
+            this.groupBox1.Controls.Add(this.btn_FullBackup);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(620, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(504, 178);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Yedekleme";
+            // 
+            // btn_TableBackup
+            // 
+            this.btn_TableBackup.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_TableBackup.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.btn_TableBackup.Appearance.Options.UseBackColor = true;
+            this.btn_TableBackup.Appearance.Options.UseFont = true;
+            this.btn_TableBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_TableBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_TableBackup.ImageOptions.Image")));
+            this.btn_TableBackup.Location = new System.Drawing.Point(20, 126);
+            this.btn_TableBackup.Name = "btn_TableBackup";
+            this.btn_TableBackup.Size = new System.Drawing.Size(168, 46);
+            this.btn_TableBackup.TabIndex = 4;
+            this.btn_TableBackup.Text = "TABLO YEDEĞİ AL";
+            this.btn_TableBackup.Click += new System.EventHandler(this.btn_TableBackup_Click);
+            // 
+            // btn_FullBackup
+            // 
+            this.btn_FullBackup.Appearance.BackColor = System.Drawing.Color.HotPink;
+            this.btn_FullBackup.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.btn_FullBackup.Appearance.Options.UseBackColor = true;
+            this.btn_FullBackup.Appearance.Options.UseFont = true;
+            this.btn_FullBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_FullBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FullBackup.ImageOptions.Image")));
+            this.btn_FullBackup.Location = new System.Drawing.Point(20, 73);
+            this.btn_FullBackup.Name = "btn_FullBackup";
+            this.btn_FullBackup.Size = new System.Drawing.Size(168, 46);
+            this.btn_FullBackup.TabIndex = 3;
+            this.btn_FullBackup.Text = "FULL BACKUP";
+            this.btn_FullBackup.Click += new System.EventHandler(this.btn_FullBackup_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 18.25F);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(6, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(480, 30);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "İŞLEM ÖNCESİ YEDEK ALMAYI UNUTMA !!";
+            // 
+            // btn_ExcelTemplate
+            // 
+            this.btn_ExcelTemplate.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.btn_ExcelTemplate.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.btn_ExcelTemplate.Appearance.Options.UseBackColor = true;
+            this.btn_ExcelTemplate.Appearance.Options.UseFont = true;
+            this.btn_ExcelTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ExcelTemplate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExcelTemplate.ImageOptions.Image")));
+            this.btn_ExcelTemplate.Location = new System.Drawing.Point(710, 229);
+            this.btn_ExcelTemplate.Name = "btn_ExcelTemplate";
+            this.btn_ExcelTemplate.Size = new System.Drawing.Size(172, 44);
+            this.btn_ExcelTemplate.TabIndex = 9;
+            this.btn_ExcelTemplate.Text = "Örnek Excel Şablonu";
+            this.btn_ExcelTemplate.Visible = false;
+            // 
+            // btn_Excel
+            // 
+            this.btn_Excel.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning;
+            this.btn_Excel.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.btn_Excel.Appearance.Options.UseBackColor = true;
+            this.btn_Excel.Appearance.Options.UseFont = true;
+            this.btn_Excel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Excel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Excel.ImageOptions.Image")));
+            this.btn_Excel.Location = new System.Drawing.Point(888, 227);
+            this.btn_Excel.Name = "btn_Excel";
+            this.btn_Excel.Size = new System.Drawing.Size(237, 46);
+            this.btn_Excel.TabIndex = 10;
+            this.btn_Excel.Text = "EXCELDEN VERİLERİ GETİR";
+            this.btn_Excel.Visible = false;
+            // 
             // FileAccessManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1152, 510);
+            this.Controls.Add(this.btn_ExcelTemplate);
+            this.Controls.Add(this.btn_Excel);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Save);
@@ -99,6 +192,8 @@
             this.Name = "FileAccessManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "J-HR\'a Dosya Aktar";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +206,11 @@
         private DevExpress.XtraEditors.SimpleButton btn_Save;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.SimpleButton btn_TableBackup;
+        private DevExpress.XtraEditors.SimpleButton btn_FullBackup;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.SimpleButton btn_ExcelTemplate;
+        private DevExpress.XtraEditors.SimpleButton btn_Excel;
     }
 }

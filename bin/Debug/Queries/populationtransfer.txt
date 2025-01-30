@@ -1,0 +1,141 @@
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASY_PERSON_POPULATIONTRANSFER]') AND type IN ('P', 'PC'))
+BEGIN
+    EXEC('
+    CREATE PROCEDURE ASY_PERSON_POPULATIONTRANSFER 
+    AS
+    BEGIN
+        IF OBJECT_ID(''dbo.AKTARPOPULATIONTRANSFERPERSON'', ''U'') IS NULL
+        BEGIN
+            CREATE TABLE AKTARPOPULATIONTRANSFERPERSON
+            (
+                ID INT PRIMARY KEY IDENTITY(1,1),
+                PERSONCODE VARCHAR(16),
+                DADDYNAME VARCHAR(30),
+                MUMMYNAME VARCHAR(30),
+                BIRTHPLACE VARCHAR(30),
+                BIRTHDATE DATETIME,
+                MARTIALNAME VARCHAR(20),
+                BLOODGROUPNAME VARCHAR(20),
+                IDTCNO VARCHAR(20),
+                CITY VARCHAR(30),
+                TOWN VARCHAR(30),
+                VILLAGE VARCHAR(50)
+            );
+        END;
+
+        BEGIN TRANSACTION;
+        BEGIN TRY
+            DECLARE @ERORRMESSAGE VARCHAR(MAX), @ID INT = 1;
+
+            WHILE (SELECT COUNT(*) FROM AKTARPOPULATIONTRANSFERPERSON WITH (NOLOCK)) >= @ID
+            BEGIN
+                DECLARE 
+                    @PERSONCODE VARCHAR(16),
+                    @DADDYNAME VARCHAR(30),
+                    @MUMMYNAME VARCHAR(30),
+                    @BIRTHPLACE VARCHAR(30),
+                    @BIRTHDATE DATETIME,
+                    @MARTIALNAME VARCHAR(20),
+                    @BLOODGROUPNAME VARCHAR(30),
+                    @IDTCNO VARCHAR(20),
+                    @CITY VARCHAR(30),
+                    @TOWN VARCHAR(30),
+                    @VILLAGE VARCHAR(50),
+                    @PERSONELLOGICALREF INT,
+                    @MARTIALLOGICALREF INT,
+                    @BLOODGROUPLOGICALREF INT;
+
+                SELECT TOP 1 
+                    @PERSONCODE = TRIM(PERSONCODE),
+                    @DADDYNAME = TRIM(DADDYNAME),
+                    @MUMMYNAME = TRIM(MUMMYNAME),
+                    @BIRTHPLACE = TRIM(BIRTHPLACE),
+                    @BIRTHDATE = BIRTHDATE,
+                    @MARTIALNAME = TRIM(MARTIALNAME),
+                    @BLOODGROUPNAME = TRIM(BLOODGROUPNAME),
+                    @IDTCNO = TRIM(IDTCNO),
+                    @CITY = TRIM(CITY),
+                    @TOWN = TRIM(TOWN),
+                    @VILLAGE = TRIM(VILLAGE)
+                FROM AKTARPOPULATIONTRANSFERPERSON WITH (NOLOCK)
+                WHERE ID = @ID;
+
+
+
+        
+                IF (  SELECT COUNT(*)
+                FROM H_001_PERSONS WITH (NOLOCK) 
+                WHERE CODE = @PERSONCODE)=0
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Personel Bulunamadı: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+
+				select TOP 1 @PERSONELLOGICALREF=LOGICALREF from H_001_PERSONS WITH(NOLOCK) WHERE CODE=@PERSONCODE
+
+                IF (SELECT COUNT(*) FROM H_001_PERIDINFOS WITH (NOLOCK) WHERE CARDREF = @PERSONELLOGICALREF AND CARDTYP = 1) = 0
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Nüfus bilgileri eksik. Kontrol ediniz: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+
+                -- Medeni Durum Kontrolleri
+                IF (@MARTIALNAME = ''Evli'') SET @MARTIALLOGICALREF = 1;
+                ELSE IF (@MARTIALNAME = ''Bekar'') SET @MARTIALLOGICALREF = 2;
+                ELSE IF (@MARTIALNAME = ''Boşanmış'') SET @MARTIALLOGICALREF = 3;
+                ELSE IF (@MARTIALNAME = ''Dul'') SET @MARTIALLOGICALREF = 4;
+                ELSE IF (@MARTIALNAME = '''') SET @MARTIALLOGICALREF = 0;
+                ELSE IF (@MARTIALNAME IS NULL) SET @MARTIALLOGICALREF = 0;
+                ELSE 
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Medeni hal format hatası. Geçerli format: Evli, Bekar, Boşanmış, Dul. Kod: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+
+                -- Kan Grubu Kontrolleri
+                IF (@BLOODGROUPNAME = ''0 Rh +'') SET @BLOODGROUPLOGICALREF = 1;
+                ELSE IF (@BLOODGROUPNAME = ''0 Rh -'') SET @BLOODGROUPLOGICALREF = 2;
+                ELSE IF (@BLOODGROUPNAME = ''A Rh +'') SET @BLOODGROUPLOGICALREF = 3;
+                ELSE IF (@BLOODGROUPNAME = ''A Rh -'') SET @BLOODGROUPLOGICALREF = 4;
+                ELSE IF (@BLOODGROUPNAME = ''B Rh +'') SET @BLOODGROUPLOGICALREF = 5;
+                ELSE IF (@BLOODGROUPNAME = ''B Rh -'') SET @BLOODGROUPLOGICALREF = 6;
+                ELSE IF (@BLOODGROUPNAME = ''AB Rh +'') SET @BLOODGROUPLOGICALREF = 7;
+                ELSE IF (@BLOODGROUPNAME = ''AB Rh -'') SET @BLOODGROUPLOGICALREF = 8;
+                ELSE IF (@BLOODGROUPNAME = '''') SET @BLOODGROUPLOGICALREF = 0;
+                ELSE IF (@BLOODGROUPNAME IS NULL) SET @BLOODGROUPLOGICALREF = 0;
+                ELSE 
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Kan grubu hatalı. Kod: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+
+                UPDATE H_001_PERIDINFOS 
+                SET 
+                    DADDY = IIF(COALESCE(@DADDYNAME, '''') = '''', DADDY, @DADDYNAME),
+                    MUMMY = IIF(COALESCE(@MUMMYNAME, '''') = '''', MUMMY, @MUMMYNAME),
+                    BIRTHPLACE = IIF(COALESCE(@BIRTHPLACE, '''') = '''', BIRTHPLACE, @BIRTHPLACE),
+                    BIRTHDATE = IIF(COALESCE(@BIRTHDATE, '''') = '''', BIRTHDATE, @BIRTHDATE),
+                    MARITALSTATUS = IIF(@MARTIALLOGICALREF = 0, MARITALSTATUS, @MARTIALLOGICALREF),
+                    BLOODGROUP = IIF(@BLOODGROUPLOGICALREF = 0, BLOODGROUP, @BLOODGROUPLOGICALREF),
+                    IDTCNO = IIF(COALESCE(@IDTCNO, '''') = '''', IDTCNO, @IDTCNO),
+                    CITY = IIF(COALESCE(@CITY, '''') = '''', CITY, @CITY),
+                    TOWN = IIF(COALESCE(@TOWN, '''') = '''', TOWN, @TOWN),
+                    VILLAGE = IIF(COALESCE(@VILLAGE, '''') = '''', VILLAGE, @VILLAGE)
+                WHERE 
+                    CARDREF = @PERSONELLOGICALREF 
+                    AND CARDTYP = 1;
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END');
+END;

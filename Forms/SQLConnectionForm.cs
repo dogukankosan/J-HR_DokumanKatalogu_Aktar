@@ -2,7 +2,6 @@
 using J_HR.Class;
 using J_HR.SQL;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace J_HR.Forms
@@ -16,83 +15,44 @@ namespace J_HR.Forms
         public string formClose = "";
         private void SQLConnectionForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
                 this.Close();
         }
         private async void btn_Save_Click(object sender, System.EventArgs e)
         {
             btn_Save.Text = "Lütfen Bekleyiniz SQL Bağlantısı Kontrol Ediliyor..";
             btn_Save.Enabled = false;
-            bool status=await SQLCRUD.TestSqlConnectionAsync(txt_ServerName.Text, txt_UserName.Text, txt_Password.Text, txt_DatabaseName.Text);
+            bool status = await SQLCRUD.TestSqlConnectionAsync(txt_ServerName.Text, txt_UserName.Text, txt_Password.Text, txt_DatabaseName.Text);
             if (status)
             {
                 XtraMessageBox.Show("SQL BAĞLANTISI BAŞARILI VE KAYDEDİLDİ", "SQL BAĞLANTISI BAŞARILI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                SQLCRUD.sqlConnection= StringEncryptor.DecryptString(File.ReadAllText(Application.StartupPath + "\\connection.txt").Trim());
+                SQLCRUD.sqlConnection = StringEncryptor.DecryptString(File.ReadAllText(Application.StartupPath + "\\connection.txt").Trim());
                 formClose = "kapat";
-                string checkProcExistsQuery = @"IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASY_DOCAKTAR]') AND type in (N'P', N'PC'))
-BEGIN
-    EXEC('
-    CREATE PROCEDURE ASY_DOCAKTAR 
-        @TCNO char(11), 
-        @FILENAME VARCHAR(250), 
-        @DOCUMENTCONTENT IMAGE 
-    AS 
-    BEGIN 
-        DECLARE @NextValueForD_BODocumentsSeq INT; 
-        DECLARE @NextValueForD_WFDocsSeq INT; 
-        DECLARE @CLIENTREF INT; 
-        DECLARE @NAMESURNAME VARCHAR(100); 
-        SELECT TOP 1 
-            @CLIENTREF = TE_WPIID, 
-            @NAMESURNAME = CONCAT(NAME, '' '', SURNAME) 
-        FROM H_001_PERSONS WITH (NOLOCK) 
-        WHERE TYP=1 AND SSCNO = @TCNO;
-        
-        BEGIN TRANSACTION;
+                string checkProcExistsQuery = File.ReadAllText(Application.StartupPath + "\\Queries\\doctransfer.txt");
+                string checkProcExistsQuery1 = File.ReadAllText(Application.StartupPath + "\\Queries\\vactransfer.txt");
+                string checkProcExistsQuery2 = File.ReadAllText(Application.StartupPath + "\\Queries\\populationtransfer.txt");
+                string checkProcExistsQuery3 = File.ReadAllText(Application.StartupPath + "\\Queries\\persontitletransfer.txt");
 
-        BEGIN TRY 
-            SET @NextValueForD_BODocumentsSeq = NEXT VALUE FOR D_BODOCUMENTSSEQ; 
-            SET @NextValueForD_WFDocsSeq = NEXT VALUE FOR D_WFDOCSSEQ; 
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_VacTransfer ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_DOCAKTAR ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_POPULATIONTRANSFER ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_TITLE_TRANSFER ");
 
-            INSERT INTO D_BODOCUMENTS 
-                ([LOGICALREF], [CLASSNAME], [BOLREF], [CONTAINERNAME], [DOCNAME], [DOCPATH], 
-                 [DOCREVISION], [DOCURI], [INLOCK], [OPTYPE], [DEFAULTCONT], [VARIABLE1], 
-                 [VARIABLE2], [HASPASSWORD], [AUXCODE], [AYNACID], [AUTHCODE], [TE_RECSTATUS], 
-                 [TE_LABELS], [CREATEDBY], [CREATEDBYNAME], [CREATEDON], [MODIFIEDBY], 
-                 [MODIFIEDBYNAME], [MODIFIEDON], [TE_SUBCOMPANY],[TE_WPIID], [TE_WFIID], 
-                 [TE_DOMAINID], [TE_RIGHTS]) 
-            VALUES 
-                (@NextValueForD_BODocumentsSeq, ''Employee'', @CLIENTREF, ''WFDOCS'', @FILENAME, ''/'', 
-                 ''1.0'', CONCAT(''WFDOCS:/'', @FILENAME, '','' , ''1.0''), 0, 3, 0, 1, 1, 0, '''', '''', '''', 1, NULL, 
-                 4, ''asyen'', GETDATE(), 0, '''', NULL, 0, 0, '''', 0, 0);
-
-            INSERT INTO D_WFDOCS 
-                ([LOGICALREF], [PARENTREF], [ELEMTYPE], [ELEMNAME], [ELEMPATH], [DOCUDI], 
-                 [DESCRIPTION], [REVISION], [CREATEDON], [MODIFIEDON], [DOCUMENT], [AUXCODE], 
-                 [DOCPASSWD], [HASPASSWORD], [AUTHCODE], [TE_RECSTATUS], [TE_LABELS], [CREATEDBY], 
-                 [CREATEDBYNAME], [MODIFIEDBY], [MODIFIEDBYNAME], [TE_SUBCOMPANY], [TE_WPIID], 
-                 [TE_WFIID], [TE_DOMAINID], [TE_RIGHTS]) 
-            VALUES 
-                (@NextValueForD_WFDocsSeq, 0, 1, @FILENAME, ''/'', CONCAT(''WFDOCS:/'', @FILENAME, '','' , ''1.0''), '''', ''1.0'', GETDATE(), NULL, @DOCUMENTCONTENT, '''', NULL, 0, '''', -1, NULL, 4, ''asyen'', 0, '''', 0, 0, '''', 0, 0);
-
-            COMMIT TRANSACTION; 
-        END TRY 
-        BEGIN CATCH 
-            ROLLBACK TRANSACTION; 
-            DECLARE @ErrorMessage NVARCHAR(4000) = CONCAT(''TC No: '', @TCNO, '' Personel Adı: '', ISNULL(@NAMESURNAME, ''TC Kimlik No Personel J-HR YOK''), '' '', ERROR_MESSAGE()); 
-            DECLARE @ErrorSeverity INT = ERROR_SEVERITY(); 
-            DECLARE @ErrorState INT = ERROR_STATE(); 
-            RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState); 
-        END CATCH 
-    END')
-END;
-";
-                string message =await SQLCRUD.ExecuteAsync(checkProcExistsQuery);
-                if (message!="Başarılı")
+                bool message = await SQLCRUD.ExecuteAsync(checkProcExistsQuery);
+                bool message1 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery1);
+                bool message2 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery2);
+                bool message3 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery3);
+                if (!message1)
+                    XtraMessageBox.Show("ASY_VacTransfer Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message)
                     XtraMessageBox.Show("ASY_DOCAKTAR Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message2)
+                    XtraMessageBox.Show("ASY_PERSON_POPULATIONTRANSFER Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message3)
+                    XtraMessageBox.Show("ASY_PERSON_TITLE_TRANSFER Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_Save.Enabled = true;
-            btn_Save.Text = "Kaydet";      
+            btn_Save.Text = "Kaydet";
         }
         private async void SQLConnectionForm_Load(object sender, System.EventArgs e)
         {
@@ -107,7 +67,7 @@ END;
         }
         private void SQLConnectionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (formClose=="kapat")
+            if (formClose == "kapat")
             {
                 e.Cancel = false;
             }

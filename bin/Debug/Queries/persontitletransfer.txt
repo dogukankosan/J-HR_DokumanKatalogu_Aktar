@@ -1,0 +1,111 @@
+CREATE PROC ASY_PERSON_TITLE_TRANSFER
+AS
+BEGIN
+    IF OBJECT_ID('dbo.AKTARPERSONTITLE', 'U') IS NULL
+    BEGIN
+        CREATE TABLE AKTARPERSONTITLE
+        (
+            ID INT PRIMARY KEY IDENTITY(1,1),
+            PERSONCODE VARCHAR(16) NOT NULL,
+            TITLECODE VARCHAR(32),
+            TITLENAME VARCHAR(150)
+        )
+    END;
+
+    DECLARE @ID INT = 1;
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        WHILE (SELECT COUNT(*) FROM AKTARPERSONTITLE WITH (NOLOCK)) >= @ID
+        BEGIN
+            DECLARE @PERSONCODE VARCHAR(16),
+                    @TITLECODE VARCHAR(32),
+                    @TITLENAME VARCHAR(150),
+                    @PERSONELLOGICALREF INT,
+                    @ERRORMESSAGE VARCHAR(MAX),
+                    @QUALDEFLOGICALREF INT;
+
+            SELECT 
+                @PERSONCODE = PERSONCODE,
+                @TITLECODE = TITLECODE,
+                @TITLENAME = TITLENAME
+            FROM AKTARPERSONTITLE WITH (NOLOCK) 
+            WHERE ID = @ID;
+
+            SELECT @PERSONELLOGICALREF = LOGICALREF
+            FROM H_001_PERSONS WITH (NOLOCK) 
+            WHERE CODE = @PERSONCODE;
+
+            IF (@PERSONELLOGICALREF IS NULL OR @PERSONELLOGICALREF = 0)
+            BEGIN
+                SET @ERRORMESSAGE = CONCAT('PERSONEL BULUNAMADI : ', @PERSONCODE);
+                RAISERROR(@ERRORMESSAGE, 16, 1);
+            END;
+
+            IF (@TITLECODE != '')
+            BEGIN
+                IF (SELECT COUNT(*) 
+                    FROM H_001_QUALFDEFS WITH (NOLOCK) 
+                    WHERE CODE = @TITLECODE) > 1
+                BEGIN
+                    SET @ERRORMESSAGE = CONCAT('İLGİLİ GÖREV YERİ KODU H_001_QUALFDEFS TABLOSUNDA BİRDEN FAZLA TEKRAR EDİYOR : ', @TITLECODE);
+                    RAISERROR(@ERRORMESSAGE, 16, 1);
+                END;
+
+                IF (SELECT COUNT(*) 
+                    FROM H_001_QUALFDEFS WITH (NOLOCK) 
+                    WHERE CODE = @TITLECODE) = 0
+                BEGIN
+                    SET @ERRORMESSAGE = CONCAT('İLGİLİ GÖREV YERİ KODU H_001_QUALFDEFS TABLOSUNDA BULUNAMADI : ', @TITLECODE);
+                    RAISERROR(@ERRORMESSAGE, 16, 1);
+                END;
+            END;
+
+            IF (@TITLENAME != '')
+            BEGIN
+                IF (SELECT COUNT(*) 
+                    FROM H_001_QUALFDEFS WITH (NOLOCK) 
+                    WHERE UPPER(NAME) LIKE '%' + UPPER(@TITLENAME) + '%') > 1
+                BEGIN
+                    SET @ERRORMESSAGE = CONCAT('İLGİLİ GÖREV YERİ ADI H_001_QUALFDEFS TABLOSUNDA BİRDEN FAZLA TEKRAR EDİYOR : ', @TITLENAME);
+                    RAISERROR(@ERRORMESSAGE, 16, 1);
+                END;
+
+                IF (SELECT COUNT(*) 
+                    FROM H_001_QUALFDEFS WITH (NOLOCK) 
+                    WHERE UPPER(NAME) = UPPER(@TITLENAME)) = 0
+                BEGIN
+                    SET @ERRORMESSAGE = CONCAT('İLGİLİ GÖREV YERİ ADI H_001_QUALFDEFS TABLOSUNDA BULUNAMADI : ', @TITLENAME);
+                    RAISERROR(@ERRORMESSAGE, 16, 1);
+                END;
+            END;
+
+            IF (@TITLECODE != '')
+            BEGIN
+                SELECT TOP 1 @QUALDEFLOGICALREF = LOGICALREF 
+                FROM H_001_QUALFDEFS 
+                WHERE CODE = @TITLECODE;
+            END
+            ELSE
+            BEGIN
+                SELECT TOP 1 @QUALDEFLOGICALREF = LOGICALREF 
+                FROM H_001_QUALFDEFS WITH (NOLOCK) 
+                WHERE UPPER(NAME) LIKE '%' + UPPER(@TITLENAME) + '%';
+            END;
+
+            UPDATE H_001_PERSONS 
+            SET TITLEREF = @QUALDEFLOGICALREF 
+            WHERE LOGICALREF = @PERSONELLOGICALREF;
+
+            SET @ID = @ID + 1;
+        END;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        DECLARE @MESAJ VARCHAR(MAX) = ERROR_MESSAGE();
+        RAISERROR(@MESAJ, 16, 1);
+    END CATCH;
+END;
