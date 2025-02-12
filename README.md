@@ -1,2 +1,2 @@
-![J-HRAnasayfa](https://github.com/user-attachments/assets/307251d6-38b3-4b27-b288-dbd7c5332295)
-![J-HRAnasayfa2](https://github.com/user-attachments/assets/a3d6b824-acad-4025-bb28-69e5398c576a)
+![JHR2](https://github.com/user-attachments/assets/e9e00581-ab6b-469a-9d4c-8c80c137302f)
+![JHR](https://github.com/user-attachments/assets/a37087ec-ad54-450b-ad2d-b6b224876a31)
