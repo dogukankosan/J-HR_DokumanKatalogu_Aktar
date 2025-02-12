@@ -3,3 +3,433 @@
 29.12.2024 18:18:29: Invalid object name 'D_BODOCUMENTSSEQ'.
 29.12.2024 18:18:30: Invalid object name 'D_WFDOCSSEQ'.
 29.12.2024 18:18:38: Invalid object name 'H_001_VACTRANSSEQ'.
+11.02.2025 16:33:52: Sunucuyla başarılı bir şekilde bağlantı kuruldu, ancak sonra oturum açma işlemi sırasında hata oluştu. (provider: Shared Memory Provider, error: 0 - Borunun diğer ucunda işlem yok.)
+11.02.2025 16:33:59: Cannot drop the procedure 'ASY_VacTransfer', because it does not exist or you do not have permission.
+11.02.2025 16:33:59: Cannot drop the procedure 'ASY_DOCAKTAR', because it does not exist or you do not have permission.
+11.02.2025 16:33:59: Cannot drop the procedure 'ASY_PERSON_POPULATIONTRANSFER', because it does not exist or you do not have permission.
+11.02.2025 16:33:59: Cannot drop the procedure 'ASY_PERSON_TITLE_TRANSFER', because it does not exist or you do not have permission.
+11.02.2025 16:54:57: Invalid object name 'H_001_PERSONS'.
+11.02.2025 16:59:33: Could not find stored procedure 'ASY_PERSON_POSITION'.
+11.02.2025 16:59:37: Cannot drop the procedure 'ASY_PERSON_POSITION', because it does not exist or you do not have permission.
+11.02.2025 17:00:20: Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+11.02.2025 17:00:22: Cannot drop the procedure 'ASY_PERSON_POSITION', because it does not exist or you do not have permission.
+11.02.2025 17:00:35: Invalid object name 'AKTARPOPULATIONTRANSFERPERSON'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+11.02.2025 17:00:59: Invalid object name 'AKTARPOPULATIONTRANSFERPERSON'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+11.02.2025 17:01:22: Invalid object name 'AKTARPOPULATIONTRANSFERPERSON'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+11.02.2025 17:02:37: Invalid object name 'AKTARPOPULATIONTRANSFERPERSON'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+11.02.2025 17:02:58: Personel Bulunamadı: 22969770978
+11.02.2025 17:41:31: Could not find stored procedure 'ASY_PERSON_PLACE'.
+11.02.2025 17:42:20: Cannot drop the procedure 'ASY_PERSON_PLACE', because it does not exist or you do not have permission.
+11.02.2025 17:43:29: Must declare the scalar variable "@POSITIONDESC".
+Must declare the scalar variable "@POSITIONCODE".
+11.02.2025 17:44:41: Cannot drop the procedure 'ASY_PERSON_PLACE', because it does not exist or you do not have permission.
+11.02.2025 17:44:43: Must declare the scalar variable "@POSITIONCODE".
+11.02.2025 17:45:05: Cannot drop the procedure 'ASY_PERSON_PLACE', because it does not exist or you do not have permission.
+11.02.2025 17:45:07: Invalid column name 'DESCRIPTION'.
+Invalid column name 'DESCRIPTION'.
+11.02.2025 17:45:35: Cannot drop the procedure 'ASY_PERSON_PLACE', because it does not exist or you do not have permission.
+11.02.2025 17:45:51: Görev yeri kodu veya açıklaması hatalı. Kontrol ediniz: 2501141633531431
+11.02.2025 17:45:56: Görev yeri kodu veya açıklaması hatalı. Kontrol ediniz: 2501141633531431
+11.02.2025 17:46:20: Görev yeri kodu veya açıklaması hatalı. Kontrol ediniz: 2501141633531431
+11.02.2025 17:47:09: Görev yeri kodu veya açıklaması hatalı. Kontrol ediniz: 2501141633531431
+11.02.2025 18:05:20: Cannot drop the procedure 'ASY_PERSON_JOB', because it does not exist or you do not have permission.
+11.02.2025 18:05:32: Could not find stored procedure 'ASY_PERSON_JOB'.
+11.02.2025 18:05:56: Cannot drop the procedure 'ASY_PERSON_JOB', because it does not exist or you do not have permission.
+11.02.2025 18:06:04: Invalid object name 'H_001_PERSONS'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.
+12.02.2025 11:29:29: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:29:42: Incorrect syntax near the keyword 'DECLARE'.
+Must declare the scalar variable "@ID".
+'VARCHAR' is not a recognized CURSOR option.
+Must declare the scalar variable "@PERSONCODE".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONCODE".
+Must declare the scalar variable "@PERSONCODE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@EXP1".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@EXP1".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@EXP1".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@EXP1".
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+12.02.2025 11:30:11: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:30:58: Incorrect syntax near the keyword 'DECLARE'.
+Must declare the scalar variable "@ID".
+Incorrect syntax near 'NOT'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+12.02.2025 11:31:00: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:31:06: Incorrect syntax near the keyword 'DECLARE'.
+Must declare the scalar variable "@ID".
+Incorrect syntax near 'NOT'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+12.02.2025 11:31:50: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:31:58: Incorrect syntax near the keyword 'DECLARE'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'INT'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+12.02.2025 11:33:48: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:33:50: Incorrect syntax near 'ini'.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Cep'.
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'İş'.
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Adres'.
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@NewLogicalRef".
+Must declare the scalar variable "@ID".
+Incorrect syntax near 'TRY'.
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Unclosed quotation mark after the character string ');
+END;
+'.
+12.02.2025 11:33:59: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:35:00: Incorrect syntax near the keyword 'DECLARE'.
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@PERSONELLOGICALREF".
+Must declare the scalar variable "@ID".
+Must declare the scalar variable "@ERORRMESSAGE".
+Must declare the scalar variable "@ERORRMESSAGE".
+12.02.2025 11:35:02: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:35:09: Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@MAIL".
+Must declare the scalar variable "@MAIL".
+12.02.2025 11:35:27: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:35:29: Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+Must declare the scalar variable "@ISMAIL".
+Must declare the scalar variable "@ISMAIL".
+12.02.2025 11:35:39: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:35:43: Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:36:01: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:36:15: Incorrect syntax near 'CepTelefonu'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:36:53: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:36:55: Incorrect syntax near 'CepTelefonu'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:37:15: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:37:16: Incorrect syntax near 'Cep'.
+12.02.2025 11:38:04: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:38:43: Incorrect syntax near 'Cep'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:38:57: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:38:58: Incorrect syntax near 'Cep'.
+12.02.2025 11:39:10: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:39:11: Incorrect syntax near 'asyen'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:39:37: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:39:41: Invalid column name 'PERSONELLOGICALREF'.
+Invalid column name 'asyen'.
+Invalid column name 'PERSONELLOGICALREF'.
+Invalid column name 'asyen'.
+12.02.2025 11:39:58: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:40:00: Invalid column name 'PERSONELLOGICALREF'.
+Invalid column name 'asyen'.
+Invalid column name 'PERSONELLOGICALREF'.
+Invalid column name 'asyen'.
+12.02.2025 11:40:16: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:40:17: Invalid column name 'asyen'.
+Invalid column name 'asyen'.
+12.02.2025 11:40:44: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:40:45: Incorrect syntax near 'asyen'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon.
+12.02.2025 11:41:11: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:41:20: Invalid object name 'H_001_CONTACTS'.
+12.02.2025 11:51:29: Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:51:53: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:51:56: Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'e'.
+Incorrect syntax near 'e'.
+Unclosed quotation mark after the character string ',CITY,@CITY) from  H_1725_CONTACTS WITH (NOLOCK) WHERE CARDREF=@PERSONELLOGICALREF AND  TYP=1
+						UPDATE H_1725_CONTACTS SET DESCRIPTION=Adres,EXP1=@EXP1,DISTRICT=@DISTRICT,TOWN=@TOWN,CITY=@CITY WHERE CARDREF=@PERSONELLOGICALREF AND TYP=1
+                END;
+				ELSE
+				BEGIN
+				SET @NewLogicalRef = NEXT VALUE FOR H_1725_CONTACTSSEQ;
+				INSERT H_1725_CONTACTS ([LOGICALREF], [CARDREF], [CARDTYP], [TYP], [DESCRIPTION], [EXP1], [EXP2], [DISTRICT], [TOWN], [CITY], [COUNTRY], [POSTCODE], [BOULEVARD], [STREET], [AVENUE], [BUILDINGNR], [INTERIORDOORNR], [VILLAGE], [ISDEFAULT], [EXTNR], [TE_RECSTATUS], [TE_LABELS], [CREATEDBY], [CREATEDBYNAME], [CREATEDON], [MODIFIEDBY], [MODIFIEDBYNAME], [MODIFIEDON], [TE_SUBCOMPANY], [TE_WPIID], [TE_WFIID], [TE_RIGHTS], [APPROVALDEFREF], [BOSTATUS])
+					VALUES (@NewLogicalRef,@PERSONELLOGICALREF,1,1,Adres,@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+Incorrect syntax near ',CITY,@CITY) from  H_1725_CONTACTS WITH (NOLOCK) WHERE CARDREF=@PERSONELLOGICALREF AND  TYP=1
+						UPDATE H_1725_CONTACTS SET D'.
+12.02.2025 11:52:25: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:52:30: Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:52:45: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:53:14: Incorrect syntax near 'Telefonu'.
+Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:53:16: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:53:17: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:53:37: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:53:40: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:54:12: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:54:53: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:54:55: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:54:56: Incorrect syntax near 'Cep'.
+12.02.2025 11:55:04: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:55:05: Incorrect syntax near 'Cep'.
+12.02.2025 11:55:32: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:56:19: Incorrect syntax near 'Cep'.
+12.02.2025 11:56:21: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:56:22: Incorrect syntax near 'İş'.
+12.02.2025 11:56:41: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:56:45: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:56:53: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:56:54: Incorrect syntax near 'Adres'.
+12.02.2025 11:57:04: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:57:05: Incorrect syntax near 'Adres'.
+12.02.2025 11:57:18: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:57:26: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:57:43: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 11:57:47: Incorrect syntax near 'Adres'.
+Unclosed quotation mark after the character string ',@EXP1,',@DISTRICT,@TOWN,@CITY,',',',',',',',',1,',1,NULL,1,',GETDATE(),0,',NULL,0,0,0,0,0,0)
+				END
+ 
+
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END'.
+12.02.2025 11:58:09: Cannot drop the procedure 'ASY_PERSON_CONTACT', because it does not exist or you do not have permission.
+12.02.2025 12:16:53: Invalid object name 'H_001_PERSONS'.
+Transaction count after EXECUTE indicates a mismatching number of BEGIN and COMMIT statements. Previous count = 0, current count = 1.

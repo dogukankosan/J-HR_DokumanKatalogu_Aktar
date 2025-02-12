@@ -1,0 +1,74 @@
+
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASY_PERSON_PLACE]') AND type IN ('P', 'PC'))
+BEGIN
+    EXEC('
+    CREATE PROCEDURE ASY_PERSON_PLACE
+    AS
+    BEGIN
+        IF OBJECT_ID(''dbo.AKTARPLACE'', ''U'') IS NULL
+        BEGIN
+            CREATE TABLE AKTARPLACE
+            (
+                ID INT PRIMARY KEY IDENTITY(1,1),
+		                PERSONCODE VARCHAR(16),
+				PLACECODE VARCHAR(MAX),
+				PLACEDESC VARCHAR(MAX)
+            );
+        END;
+
+        BEGIN TRANSACTION;
+        BEGIN TRY
+            DECLARE @ERORRMESSAGE VARCHAR(MAX), @ID INT = 1,@PERSONELLOGICALREF  INT
+
+            WHILE (SELECT COUNT(*) FROM AKTARPLACE WITH (NOLOCK)) >= @ID
+            BEGIN
+                DECLARE 
+                    @PERSONCODE VARCHAR(16),
+					@PLACECODE VARCHAR(MAX),
+					@PLACEDESC VARCHAR(MAX)
+
+                SELECT TOP 1 
+                    @PERSONCODE = TRIM(PERSONCODE),
+                    @PLACECODE=PLACECODE,
+					@PLACEDESC=PLACEDESC
+                FROM AKTARPLACE WITH (NOLOCK)
+                WHERE ID = @ID;
+      
+                IF (  SELECT COUNT(*)
+                FROM H_001_PERSONS WITH (NOLOCK) 
+                WHERE CODE = @PERSONCODE)=0
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Personel Bulunamadı: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+
+				select TOP 1 @PERSONELLOGICALREF=LOGICALREF from H_001_PERSONS WITH(NOLOCK) WHERE CODE=@PERSONCODE
+
+                IF (SELECT COUNT(*) FROM H_001_QUALFDEFS WITH (NOLOCK) WHERE (CODE =@PLACECODE OR NAME=@PLACEDESC ) AND TYP=8) = 0
+                BEGIN
+                    SET @ERORRMESSAGE = CONCAT(''Görev yeri kodu veya açıklaması hatalı. Kontrol ediniz: '', @PERSONCODE);
+                    RAISERROR(@ERORRMESSAGE, 16, 1);
+                END;
+				
+             
+ 
+
+                UPDATE H_001_PERSONS
+                SET 
+                    PLACEREF=(SELECT TOP 1 LOGICALREF FROM H_001_QUALFDEFS WITH (NOLOCK) WHERE (CODE =@PLACECODE OR NAME=@PLACEDESC) AND TYP=8)
+                WHERE 
+                    LOGICALREF = @PERSONELLOGICALREF 
+
+                SET @ID = @ID + 1;
+            END;
+
+            COMMIT TRANSACTION;
+        END TRY
+        BEGIN CATCH
+            ROLLBACK TRANSACTION;
+            SET @ERORRMESSAGE = ERROR_MESSAGE();
+            RAISERROR(@ERORRMESSAGE, 16, 1);
+        END CATCH;
+    END');
+END;

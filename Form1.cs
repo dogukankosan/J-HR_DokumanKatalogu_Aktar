@@ -148,5 +148,76 @@ namespace J_HR
         {
             Application.Exit();
         }
+
+        private void btn_Exit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_Minize_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btn_Position_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is PositionForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            PositionForm childForm = new PositionForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void btn_Place_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is PlaceForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            PlaceForm childForm = new PlaceForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void btn_Job_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is JobForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            JobForm childForm = new JobForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void btn_Contact_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is ContactForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            ContactForm childForm = new ContactForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
     }
 }

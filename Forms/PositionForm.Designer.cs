@@ -1,6 +1,6 @@
 ﻿namespace J_HR.Forms
 {
-    partial class TitleForm
+    partial class PositionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TitleForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PositionForm));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,8 +49,8 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(544, 624);
-            this.gridControl1.TabIndex = 1;
+            this.gridControl1.Size = new System.Drawing.Size(544, 586);
+            this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -70,10 +70,10 @@
             this.groupBox1.Controls.Add(this.btn_TableBackup);
             this.groupBox1.Controls.Add(this.btn_FullBackup);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(550, 86);
+            this.groupBox1.Location = new System.Drawing.Point(561, 88);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(504, 196);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.Size = new System.Drawing.Size(504, 181);
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yedekleme";
             // 
@@ -126,10 +126,10 @@
             this.btn_ExcelTemplate.Appearance.Options.UseFont = true;
             this.btn_ExcelTemplate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ExcelTemplate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExcelTemplate.ImageOptions.Image")));
-            this.btn_ExcelTemplate.Location = new System.Drawing.Point(550, 12);
+            this.btn_ExcelTemplate.Location = new System.Drawing.Point(561, 14);
             this.btn_ExcelTemplate.Name = "btn_ExcelTemplate";
             this.btn_ExcelTemplate.Size = new System.Drawing.Size(172, 44);
-            this.btn_ExcelTemplate.TabIndex = 0;
+            this.btn_ExcelTemplate.TabIndex = 7;
             this.btn_ExcelTemplate.Text = "Örnek Excel Şablonu";
             this.btn_ExcelTemplate.Click += new System.EventHandler(this.btn_ExcelTemplate_Click);
             // 
@@ -141,10 +141,10 @@
             this.btn_Excel.Appearance.Options.UseFont = true;
             this.btn_Excel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Excel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Excel.ImageOptions.Image")));
-            this.btn_Excel.Location = new System.Drawing.Point(728, 10);
+            this.btn_Excel.Location = new System.Drawing.Point(739, 12);
             this.btn_Excel.Name = "btn_Excel";
             this.btn_Excel.Size = new System.Drawing.Size(237, 46);
-            this.btn_Excel.TabIndex = 1;
+            this.btn_Excel.TabIndex = 8;
             this.btn_Excel.Text = "EXCELDEN VERİLERİ GETİR";
             this.btn_Excel.Click += new System.EventHandler(this.btn_Excel_Click);
             // 
@@ -156,30 +156,30 @@
             this.btn_Save.Appearance.Options.UseFont = true;
             this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(971, 10);
+            this.btn_Save.Location = new System.Drawing.Point(982, 12);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(168, 46);
-            this.btn_Save.TabIndex = 2;
+            this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "AKTAR";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // TitleForm
+            // PositionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1188, 624);
+            this.ClientSize = new System.Drawing.Size(1161, 586);
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_ExcelTemplate);
             this.Controls.Add(this.btn_Excel);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.gridControl1);
-            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("TitleForm.IconOptions.LargeImage")));
+            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("PositionForm.IconOptions.LargeImage")));
             this.MaximizeBox = false;
-            this.Name = "TitleForm";
+            this.Name = "PositionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ünvan Aktarımı";
-            this.Load += new System.EventHandler(this.TitleForm_Load);
+            this.Text = "Pozisyon Aktarımı";
+            this.Load += new System.EventHandler(this.PositionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -193,11 +193,11 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.SimpleButton btn_TableBackup;
         private DevExpress.XtraEditors.SimpleButton btn_FullBackup;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btn_ExcelTemplate;
         private DevExpress.XtraEditors.SimpleButton btn_Excel;
         private DevExpress.XtraEditors.SimpleButton btn_Save;
-        private DevExpress.XtraEditors.SimpleButton btn_TableBackup;
     }
 }

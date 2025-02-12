@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.BonusSkins.v20.1" />
     <Reference Include="DevExpress.Data.Desktop.v20.1" />
     <Reference Include="DevExpress.Data.v20.1" />
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -78,6 +79,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\JobForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JobForm.Designer.cs">
+      <DependentUpon>JobForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlaceForm.Designer.cs">
+      <DependentUpon>PlaceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PopulationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +114,12 @@
     </Compile>
     <Compile Include="Forms\PermissionForm.Designer.cs">
       <DependentUpon>PermissionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PositionForm.Designer.cs">
+      <DependentUpon>PositionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SQLConnectionForm.cs">
       <SubType>Form</SubType>
@@ -115,6 +140,15 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JobForm.resx">
+      <DependentUpon>JobForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlaceForm.resx">
+      <DependentUpon>PlaceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PopulationForm.resx">
       <DependentUpon>PopulationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PermissionForm.resx">
       <DependentUpon>PermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PositionForm.resx">
+      <DependentUpon>PositionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SQLConnectionForm.resx">
       <DependentUpon>SQLConnectionForm.cs</DependentUpon>

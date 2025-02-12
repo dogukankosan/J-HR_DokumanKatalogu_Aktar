@@ -110,3 +110,7 @@ D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\bin\Debug\ExcelDataReader.DataSet.
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.PopulationForm.resources
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.TitleForm.resources
 D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J-HR.csprojAssemblyReference.cache
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.PositionForm.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.PlaceForm.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.JobForm.resources
+D:\Users\DOGUKAN\source\repos\J-HR_Asyen\J-HR\obj\Debug\J_HR.Forms.ContactForm.resources

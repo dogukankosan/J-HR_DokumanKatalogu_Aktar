@@ -32,16 +32,29 @@ namespace J_HR.Forms
                 string checkProcExistsQuery1 = File.ReadAllText(Application.StartupPath + "\\Queries\\vactransfer.txt");
                 string checkProcExistsQuery2 = File.ReadAllText(Application.StartupPath + "\\Queries\\populationtransfer.txt");
                 string checkProcExistsQuery3 = File.ReadAllText(Application.StartupPath + "\\Queries\\persontitletransfer.txt");
+                string checkProcExistsQuery4 = File.ReadAllText(Application.StartupPath + "\\Queries\\position.txt");
+                string checkProcExistsQuery5 = File.ReadAllText(Application.StartupPath + "\\Queries\\place.txt");
+                string checkProcExistsQuery6 = File.ReadAllText(Application.StartupPath + "\\Queries\\job.txt");
+                string checkProcExistsQuery7 = File.ReadAllText(Application.StartupPath + "\\Queries\\contact.txt");
 
                 await SQLCRUD.DropExecuteAsync("DROP PROC ASY_VacTransfer ");
                 await SQLCRUD.DropExecuteAsync("DROP PROC ASY_DOCAKTAR ");
                 await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_POPULATIONTRANSFER ");
                 await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_TITLE_TRANSFER ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_POSITION ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_PLACE ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_JOB ");
+                await SQLCRUD.DropExecuteAsync("DROP PROC ASY_PERSON_CONTACT ");
 
                 bool message = await SQLCRUD.ExecuteAsync(checkProcExistsQuery);
                 bool message1 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery1);
                 bool message2 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery2);
                 bool message3 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery3);
+                bool message4 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery4);
+                bool message5 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery5);
+                bool message6 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery6);
+                bool message7 = await SQLCRUD.ExecuteAsync(checkProcExistsQuery7);
+
                 if (!message1)
                     XtraMessageBox.Show("ASY_VacTransfer Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (!message)
@@ -50,6 +63,14 @@ namespace J_HR.Forms
                     XtraMessageBox.Show("ASY_PERSON_POPULATIONTRANSFER Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 if (!message3)
                     XtraMessageBox.Show("ASY_PERSON_TITLE_TRANSFER Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message4)
+                    XtraMessageBox.Show("ASY_PERSON_POSITION Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message5)
+                    XtraMessageBox.Show("ASY_PERSON_PLACE Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 if (!message6)
+                    XtraMessageBox.Show("ASY_PERSON_JOB Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!message7)
+                    XtraMessageBox.Show("ASY_PERSON_CONTACT Prosedürü Oluşturulamadı !! ", "SQL İŞLEMİ HATALI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btn_Save.Enabled = true;
             btn_Save.Text = "Kaydet";
