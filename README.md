@@ -1,82 +1,75 @@
-
-![indir](https://github.com/user-attachments/assets/5af8865a-0294-4e30-a0ad-1db6724f8c6d)
-
 # J‑HR DökümanKataloğu Aktar
 
 🏢 **HR doküman kataloğundan PDF/Excel dosya bilgisini çekip, hedef sisteme aktarım yapan Windows aracı**  
-Özellikle Logo ERP ya da dış sistemlerin İK modüllerindeki doküman meta verilerini okur ve başka bir veritabanına veya depolama servisine gönderir (örneğin SharePoint, SQL, AWS S3 vb.).
+Özellikle Logo ERP veya dış sistemlerin İK modüllerindeki doküman meta verilerini okur ve başka bir veritabanına veya depolama servisine iletir (örn. SharePoint, SQL, AWS S3 vb.).
 
 ---
 
 ## 🔍 Özellikler
 
-- 📁 Kaynak klasör veya veritabanından doküman listesini okur
-- 📊 PDF/Excel dosya meta verisini çıkarır (isim, boyut, tarih, md5/sha1 hash)
-- 🚚 Verileri hedef sistem tipine göre aktarır (SQL, JSON API, REST)
-- 🧭 Mapping / eşleme şablonları destekli (kaynak ↔ hedef)
-- 🔄 Kısa aralıklarla tekrarlanan görev planlaması (Quartz.NET)
-- 📝 Aktarım başarı/hata logları
+- 📁 Kaynak klasör veya veritabanından doküman listesi okuma
+- 📊 PDF/Excel dosya meta verisinin çıkarılması (isim, boyut, tarih, hash)
+- 🚚 SQL, JSON API veya REST ile hedef sisteme aktarım
+- 🧭 Mapping/şablon desteği (kaynak ↔ hedef)
+- 🔄 Quartz.NET ile zamanlanmış görev planlaması
+- 📝 Aktarım başarı ve hata logları
 
 ---
 
 ## 📂 Proje Yapısı
 
+```
 J‑HR_DokumanKatalogu_Aktar/
-├── Reader/ # Metadata okuma sınıfları (PDF, Excel, klasör)
-├── Mapper/ # Kaynak → hedef eşlemeleri
-├── Writer/ # Hedef sisteme yazma (DB, API)
-├── Scheduler/ # Quartz.NET görev tanımları
-├── Config/ # appsettings.json / mapping dosyaları
-├── Models/ # Metadata modelleri
-├── Logging/ # Aktarım logları
-└── Program.cs # Konsol veya servis uygulaması
+├── Reader/       # Metadata okuma sınıfları (PDF, Excel, klasör)
+├── Mapper/       # Kaynak → hedef eşlemeleri
+├── Writer/       # Hedef sisteme yazma (DB, API)
+├── Scheduler/    # Quartz.NET görev tanımları
+├── Config/       # appsettings.json / mapping dosyaları
+├── Models/       # Metadata modelleri
+├── Logging/      # Aktarım logları
+└── Program.cs    # Konsol veya servis uygulaması
+```
 
 ---
 
 ## ⚙️ Kurulum & Kullanım
 
-1. `appsettings.json` içinde:
-   - Kaynak (SQL, klasör, dosya path)
+1. `appsettings.json` dosyasında:
+   - Kaynak (SQL, klasör, dosya yolu)
    - Hedef (SQL bağlantısı, API endpoint)
-   - Mapping ayarları (örneğin JSON içinde “DokumanTipi”: “HedefKategori”)
-   - Quartz cron tanımı (örneğin: `0 0/15 * * * ?` – her 15 dakikada bir)
+   - Mapping ayarları (ör: JSON ile “DokumanTipi”: “HedefKategori”)
+   - Quartz cron tanımı (örn: `0 0/15 * * * ?` – her 15 dakikada bir çalıştırmak için)
 
 ---
 
-🧠 Teknik Detaylar
-.NET 6+ konsol veya Worker Service
+## 🧠 Teknik Detaylar
 
-Quartz.NET zamanlama
-
-PDF: iTextSharp veya PDFSharp
-
-Excel: EPPlus veya ClosedXML
-
-Hash: SHA256
-
-Logging: NLog veya Serilog
-
-Mapping: JSON veya YAML şablonlarla esnek yapı
+- .NET 6+ (konsol uygulaması veya Worker Service)
+- Quartz.NET ile zamanlama
+- PDF: iTextSharp veya PDFSharp
+- Excel: EPPlus veya ClosedXML
+- Hash: SHA256 ile dosya bütünlüğü kontrolü
+- Logging: NLog veya Serilog
+- Mapping: JSON veya YAML şablonlar
 
 ---
 
-🛠️ Geliştirici İpuçları
-Try/catch içine alınmış tüm veri okuma ve yazma işlemleri
+## 🛠️ Geliştirici İpuçları
 
-Hatalı kayıtlar “ErrorLog” tablosuna yazılır
-
-Başarılı olanların sayısı ve meta bilgisi “SuccessLog” içinde
-
-Kaynak ve hedef modeller ReaderModel ve WriterModel olarak ayrılmış
+- Tüm okuma/yazma işlemleri try/catch ile korunur
+- Hatalı kayıtlar “ErrorLog” tablosuna/log dosyasına yazılır
+- Başarılı aktarımlar “SuccessLog” ile takip edilir
+- Kaynak ve hedef modeller ayrı (ReaderModel, WriterModel)
 
 ---
 
-📄 Lisans
+## 📄 Lisans
+
 MIT License
 
 ---
 
-📬 İletişim
-👨‍💻 Geliştirici: @dogukankosan
-🐞 Hata bildirimi ve öneri için: Issues sekmesi
+## 📬 İletişim
 
+👨‍💻 Geliştirici: @dogukankosan  
+🐞 Hata bildirimi ve öneriler için: Issues sekmesini kullanabilirsiniz.
