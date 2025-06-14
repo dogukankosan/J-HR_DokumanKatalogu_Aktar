@@ -1,7 +1,7 @@
 
-# J‑HR![indir](https://github.com/user-attachments/assets/5af8865a-0294-4e30-a0ad-1db6724f8c6d)
+![indir](https://github.com/user-attachments/assets/5af8865a-0294-4e30-a0ad-1db6724f8c6d)
 
-_DokumanKatalogu_Aktar
+# J‑HR DökümanKataloğu Aktar
 
 🏢 **HR doküman kataloğundan PDF/Excel dosya bilgisini çekip, hedef sisteme aktarım yapan Windows aracı**  
 Özellikle Logo ERP ya da dış sistemlerin İK modüllerindeki doküman meta verilerini okur ve başka bir veritabanına veya depolama servisine gönderir (örneğin SharePoint, SQL, AWS S3 vb.).
