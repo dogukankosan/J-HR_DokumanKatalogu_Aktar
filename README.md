@@ -1,3 +1,6 @@
+
+![indir](https://github.com/user-attachments/assets/1cf4d5e0-965d-46d0-bd35-9b8e13310371)
+
 # J‑HR DökümanKataloğu Aktar
 
 🏢 **HR doküman kataloğundan PDF/Excel dosya bilgisini çekip, hedef sisteme aktarım yapan Windows aracı**  
