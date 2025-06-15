@@ -3,66 +3,53 @@
 
 # J‑HR DökümanKataloğu Aktar
 
-🏢 **HR doküman kataloğundan PDF/Excel dosya bilgisini çekip, hedef sisteme aktarım yapan Windows aracı**  
-Özellikle Logo ERP veya dış sistemlerin İK modüllerindeki doküman meta verilerini okur ve başka bir veritabanına veya depolama servisine iletir (örn. SharePoint, SQL, AWS S3 vb.).
+**J‑HR DökümanKataloğu Aktar**, Excel dosyasındaki doküman verilerini (PDF/Excel dosya bilgileri vb.) okuyan ve doğrudan bir veritabanına aktaran, pratik ve güvenli bir Windows aracıdır. Temel işlevi; İK veya doküman yönetim sistemlerinde, toplu veri aktarımını hatasız ve otomatik şekilde sağlamaktır. Tüm aktarımlar sırasında detaylı loglama yapılır ve herhangi bir hata oluşursa, yapılan işlemlerin tamamı otomatik olarak geri alınır (transaction rollback). Böylece veri bütünlüğü ve güvenliği korunur.
 
 ---
 
-## 🔍 Özellikler
+## 🚀 Temel Özellikler
 
-- 📁 Kaynak klasör veya veritabanından doküman listesi okuma
-- 📊 PDF/Excel dosya meta verisinin çıkarılması (isim, boyut, tarih, hash)
-- 🚚 SQL, JSON API veya REST ile hedef sisteme aktarım
-- 🧭 Mapping/şablon desteği (kaynak ↔ hedef)
-- 🔄 Quartz.NET ile zamanlanmış görev planlaması
-- 📝 Aktarım başarı ve hata logları
+- 📊 **Excel dosyasından toplu veri okuma**
+- 🗄️ **Okunan verileri doğrudan veritabanına yazma (SQL)**
+- 🛡️ **Tüm aktarım işlemleri transaction ile güvence altında; hata olursa işlem tamamen geri alınır**
+- 📝 **Başarılı ve hatalı işlemler için detaylı loglama**
+- 🔄 **Tek tıkla veya zamanlanmış olarak otomatik çalıştırma**
+- ⚙️ **Kolay yapılandırma (Excel yolu, veritabanı bağlantısı, mapping ayarları)**
 
 ---
 
-## 📂 Proje Yapısı
+## 🗂 Proje Yapısı
 
 ```
 J‑HR_DokumanKatalogu_Aktar/
-├── Reader/       # Metadata okuma sınıfları (PDF, Excel, klasör)
-├── Mapper/       # Kaynak → hedef eşlemeleri
-├── Writer/       # Hedef sisteme yazma (DB, API)
-├── Scheduler/    # Quartz.NET görev tanımları
-├── Config/       # appsettings.json / mapping dosyaları
-├── Models/       # Metadata modelleri
-├── Logging/      # Aktarım logları
-└── Program.cs    # Konsol veya servis uygulaması
+├── ExcelReader/   # Excel dosyasından veri okuma
+├── DbWriter/      # Veritabanına yazma işlemleri (transaction destekli)
+├── Logging/       # Başarı ve hata loglama
+├── Models/        # Veri modelleri
+├── Config/        # Ayar dosyaları (appsettings.json)
+└── Program.cs     # Uygulama giriş noktası
 ```
 
 ---
 
-## ⚙️ Kurulum & Kullanım
+## 🛠️ Teknik Detaylar
 
-1. `appsettings.json` dosyasında:
-   - Kaynak (SQL, klasör, dosya yolu)
-   - Hedef (SQL bağlantısı, API endpoint)
-   - Mapping ayarları (ör: JSON ile “DokumanTipi”: “HedefKategori”)
-   - Quartz cron tanımı (örn: `0 0/15 * * * ?` – her 15 dakikada bir çalıştırmak için)
-
----
-
-## 🧠 Teknik Detaylar
-
-- .NET 6+ (konsol uygulaması veya Worker Service)
-- Quartz.NET ile zamanlama
-- PDF: iTextSharp veya PDFSharp
-- Excel: EPPlus veya ClosedXML
-- Hash: SHA256 ile dosya bütünlüğü kontrolü
-- Logging: NLog veya Serilog
-- Mapping: JSON veya YAML şablonlar
+- .NET 6+ ile geliştirilmiştir.
+- Excel işlemleri için EPPlus veya ClosedXML kullanılır.
+- Veritabanı işlemleri transaction (işlem bütünlüğü) ile yapılır.
+- Loglama için NLog veya Serilog tercih edilir.
+- Hata durumunda yapılan tüm işlemler otomatik olarak geri alınır (rollback).
 
 ---
 
-## 🛠️ Geliştirici İpuçları
+## ⚙️ Kullanım
 
-- Tüm okuma/yazma işlemleri try/catch ile korunur
-- Hatalı kayıtlar “ErrorLog” tablosuna/log dosyasına yazılır
-- Başarılı aktarımlar “SuccessLog” ile takip edilir
-- Kaynak ve hedef modeller ayrı (ReaderModel, WriterModel)
+1. `appsettings.json` dosyasından:
+    - Excel dosya yolunu
+    - Veritabanı bağlantı cümleni
+    - (Varsa) mapping ayarlarını gir.
+2. Uygulamayı başlat; veriler otomatik olarak aktarılır.
+3. Log dosyalarını ve işlemlerin durumunu kontrol et.
 
 ---
 
@@ -74,5 +61,5 @@ MIT License
 
 ## 📬 İletişim
 
-👨‍💻 Geliştirici: @dogukankosan  
-🐞 Hata bildirimi ve öneriler için: Issues sekmesini kullanabilirsiniz.
+Geliştirici: @dogukankosan  
+Sorun ve öneriler için Issues sekmesini kullanabilirsin.
