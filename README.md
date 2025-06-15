@@ -34,7 +34,7 @@ J‑HR_DokumanKatalogu_Aktar/
 
 ## 🛠️ Teknik Detaylar
 
-- .NET 6+ ile geliştirilmiştir.
+- .NET 4.8 ile geliştirilmiştir.
 - Excel işlemleri için EPPlus veya ClosedXML kullanılır.
 - Veritabanı işlemleri transaction (işlem bütünlüğü) ile yapılır.
 - Loglama için NLog veya Serilog tercih edilir.
