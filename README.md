@@ -50,6 +50,13 @@ J‑HR_DokumanKatalogu_Aktar/
 2. Uygulamayı başlat; veriler otomatik olarak aktarılır.
 3. Log dosyalarını ve işlemlerin durumunu kontrol et.
 
+
+---
+
+## 🤝 Katkı
+
+Katkı sağlamak için projeyi forklayabilir ve pull request gönderebilirsiniz.
+
 ---
 
 ## 📄 Lisans
@@ -64,3 +71,4 @@ MIT License
 - 🐞 Suggestions or issues: [Issues sekmesi](https://github.com/dogukankosan/LogoWhatsappEntegrasyon/issues)
 
 ---
+
