@@ -61,5 +61,7 @@ MIT License
 
 ## 📬 İletişim
 
-Geliştirici: @dogukankosan  
-Sorun ve öneriler için Issues sekmesini kullanabilirsin.
+- 👨‍💻 Geliştirici: [@dogukankosan](https://github.com/dogukankosan)  
+- 🐞 Suggestions or issues: [Issues sekmesi](https://github.com/dogukankosan/LogoWhatsappEntegrasyon/issues)
+
+---
