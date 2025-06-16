@@ -47,7 +47,6 @@ J‑HR_DokumanKatalogu_Aktar/
 1. `appsettings.json` dosyasından:
     - Excel dosya yolunu
     - Veritabanı bağlantı cümleni
-    - (Varsa) mapping ayarlarını gir.
 2. Uygulamayı başlat; veriler otomatik olarak aktarılır.
 3. Log dosyalarını ve işlemlerin durumunu kontrol et.
 
